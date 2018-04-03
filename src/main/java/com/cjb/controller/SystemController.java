@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @RequestMapping("hosp")
-public class SystemController {
+public class SystemController  extends BaseController{
 
     @RequestMapping(value = "addDepartment" ,method = RequestMethod.POST)
     @ResponseBody

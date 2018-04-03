@@ -1,20 +1,17 @@
 package com.cjb.service.impl;
 
-import com.cjb.common.Constant;
+import com.cjb.common.Constants;
 import com.cjb.common.ServerResponse;
 import com.cjb.dao.SystemUserMapper;
 import com.cjb.dao.UserMapper;
-import com.cjb.dao.UserMapperCustom;
 import com.cjb.pojo.SystemUser;
 import com.cjb.pojo.SystemUserExample;
 import com.cjb.pojo.User;
 import com.cjb.pojo.UserExample;
-import com.cjb.pojo.vo.UserCustom;
 import com.cjb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -43,9 +40,9 @@ public class UserServiceImpl implements UserService{
         criteria.andPasswordEqualTo(password);
         List<User> user=userMapper.selectByExample(userExample);
         if(user!=null&&user.size()>=0){
-            return ServerResponse.build(Constant.SUCCESS_CODE,"成功登录",user);
+            return ServerResponse.build(Constants.SUCCESS_CODE,"成功登录",user);
         }else{
-            return ServerResponse.build(Constant.USER_LOGIN_FAIL,"账号或密码错误");
+            return ServerResponse.build(Constants.USER_LOGIN_FAIL,"账号或密码错误");
         }
     }
 
@@ -63,9 +60,9 @@ public class UserServiceImpl implements UserService{
         criteria.andPasswordEqualTo(password);
         List<User> user=userMapper.selectByExample(userExample);
         if(user!=null){
-            return ServerResponse.build(Constant.SUCCESS_CODE,"成功登录",user);
+            return ServerResponse.build(Constants.SUCCESS_CODE,"成功登录",user);
         }else{
-            return ServerResponse.build(Constant.USER_LOGIN_FAIL,"账号或密码错误");
+            return ServerResponse.build(Constants.USER_LOGIN_FAIL,"账号或密码错误");
         }
     }
 
@@ -83,9 +80,9 @@ public class UserServiceImpl implements UserService{
         criteria.andPasswordEqualTo(password);
         List<SystemUser>  systemUser=systemUserMapper.selectByExample(systemUserExample);
         if(systemUser!=null){
-            return ServerResponse.build(Constant.SUCCESS_CODE,"成功登录",systemUser);
+            return ServerResponse.build(Constants.SUCCESS_CODE,"成功登录",systemUser);
         }else{
-            return ServerResponse.build(Constant.USER_LOGIN_FAIL,"账号或密码错误");
+            return ServerResponse.build(Constants.USER_LOGIN_FAIL,"账号或密码错误");
         }
     }
 }
